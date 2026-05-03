@@ -41,3 +41,7 @@ Communicates with PLATO tile server at `http://localhost:8847`. All deck operati
 ## License
 
 MIT
+## Related
+
+- [deckboss.ai](https://deckboss.ai) — Live site
+- [deckboss-ai-pages](https://github.com/SuperInstance/deckboss-ai-pages) — GitHub Pages source
