@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+deckboss_agent/__init__.py
+deckboss_agent/cli.py
+deckboss_agent.egg-info/PKG-INFO
+deckboss_agent.egg-info/SOURCES.txt
+deckboss_agent.egg-info/dependency_links.txt
+deckboss_agent.egg-info/entry_points.txt
+deckboss_agent.egg-info/requires.txt
+deckboss_agent.egg-info/top_level.txt
+tests/test_deckboss_agent.py

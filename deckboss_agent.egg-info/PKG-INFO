@@ -1,3 +1,24 @@
+Metadata-Version: 2.4
+Name: deckboss-agent
+Version: 0.1.0
+Summary: Deck Operations Intelligence — catch processing logs, crew coordination, equipment tracking via PLATO
+Author-email: SuperInstance <cocapn@proton.me>
+License: MIT
+Keywords: plato,fishing,deck,catch,equipment,crew
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Maritime
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21; extra == "dev"
+Requires-Dist: httpx; extra == "dev"
+
 # deckboss-agent
 
 **Deck Operations Intelligence** for [deckboss.ai](https://deckboss.ai) — catch processing logs, deck crew coordination, and equipment tracking powered by PLATO.
