@@ -17,22 +17,36 @@ Install:
 
 import json
 import urllib.request
+from fleet_agent import BaseAgent
+from fleet_agent.fleet_math import EmergenceDetector, HolonomyConsensus
+
 from datetime import datetime, timezone
 from typing import Any, Optional
 
 PLATO_URL = "http://localhost:8847"
 ROOM = "deckboss-ai"
 
-
 class DeckBossAgent:
     """Deck Operations Intelligence — catch processing, crew coordination, equipment tracking."""
 
-    def __init__(self, vessel: str = "unknown", deck_boss: str = "default", verbose: bool = True):
-        self.vessel = vessel
-        self.deck_boss = deck_boss
-        self.verbose = verbose
+        
+    def detect_emergence(self, events: list) -> dict:
+        """Detect emergence via H1 cohomology."""
+        detector = EmergenceDetector()
+        edges = [(events[i], events[i+1]) for i in range(len(events)-1)]
+        detector.update(events, edges)
+        return {"emergence_detected": detector.emergence_detected, "h1_cohomology": detector.h1, "confidence": detector.confidence}
 
-    # === PLATO Communication ===
+    def check_consensus(self, tile_ids: list[int]) -> bool:
+        """Check holonomy consensus across tiles."""
+        hc = HolonomyConsensus()
+        for tid in tile_ids:
+            hc.add_tile(tid)
+        return hc.check_consensus([tile_ids])
+
+def __init__(self, vessel: str = "deckboss-agent", domain: str = DECKBOSS_AI_ROOM, plato_url: str = "http://localhost:8847"):
+        super().__init__(vessel=vessel, domain=domain, plato_url=plato_url)
+        self.room = domain
 
     def _get(self, path: str) -> dict:
         req = urllib.request.Request(f"{PLATO_URL}{path}")
